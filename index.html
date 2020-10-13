@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Pairs</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <style>
+
+  body{
+    font-family: American Typewriter;
+    padding-top: 10vh;
+  }
+
+  div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #imageContainer{
+      width: 50vw;
+  }
+
+  #videoContainer{
+      width: 50vw;
+  }
+
+  </style>
+</head>
+
+<body>
+  <div>
+    <img id="imageContainer">
+  </div>
+  <div>
+    <video autoplay loop muted>
+        <source id="videoContainer" type="video/mp4">
+    </video>
+  </div>
+
+  <script>
+    const imageContainer = document.querySelector('#imageContainer');
+    const videoContainer = document.querySelector('#videoContainer');
+
+    const images = ['images/01.jpg','images/02.jpg','images/03.jpg','images/04.jpg'];
+    const video = ['videos/video-01.mp4','videos/video-02.mp4','videos/video-03.mp4','videos/video-04.mp4'];
+
+    function setRandomImage() {
+      const randomImageIndex = Math.floor(Math.random() * 4);
+      const randomVideoIndex = Math.floor(Math.random() * 4);
+      imageContainer.src = images[randomImageIndex];
+      videoContainer.src = video[randomVideoIndex];
+    }
+
+    window.addEventListener('load',setRandomImage);
+  </script>
+</body>
+</html>
